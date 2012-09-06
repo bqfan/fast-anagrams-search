@@ -4,6 +4,7 @@ fast-anagrams-search
 Rails app for fast and scalable anagrams search.
 
 1. Create a rails app:
+
 <pre><code>rails new fast-anagrams-search --skip-test-unit</code></pre>
 
 2. Add RSpec and capybara gems to Gemfile
