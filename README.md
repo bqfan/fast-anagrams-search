@@ -14,13 +14,14 @@ end
 
 group :test do
   gem 'capybara'
-end```
-
+end
+```
 3. It needs to be in the :development group to expose generators and rake tasks without having to type RAILS_ENV=test.
 
 Now you can run:
 
-```script/rails generate rspec:install```
+```script/rails generate rspec:install
+```
 This adds the spec directory and some skeleton files, including a .rspec file
 
 
