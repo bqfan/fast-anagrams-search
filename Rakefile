@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-FastAnagramsSearch::Application.load_tasks
+Anagrams::Application.load_tasks

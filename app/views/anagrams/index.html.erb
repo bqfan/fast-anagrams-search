@@ -1,0 +1,41 @@
+<% if Dictionary.empty? %>
+    <h3>Upload an anagram dictionary</h3>
+    <br />
+    Upload File (in .txt format)
+    <%= form_tag({controller: :dictionaries, action: :create}, :multipart => true) do %>
+      <%= file_field_tag :dictionary %><%= submit_tag 'Load File' %>
+    <% end %>
+<% else %>
+    <p class="align_right">
+      <%= link_to 'Delete dictionary', delete_dictionary_path, confirm: "Are you sure you want to delete the dictionary?", method: :delete %>
+    </p>
+    <br />
+    <p>Dictionary has a total of <strong><%= Dictionary.count(:key) %> anagrams</strong></p><br />
+<% end %>
+<br />
+<hr>
+
+<h3>Find anagrams for</h3> <br />
+<%= form_tag(controller: :anagrams, action: :create) do %>
+  <%= text_field_tag :word %>
+  <%= submit_tag 'Get anagrams' %>
+<% end %>
+<div class="align_right">
+  <%= link_to 'Delete anagrams', delete_anagrams_path, confirm: "Are you sure you want to delete the anagrams?", method: :delete %>
+</div>
+<br />
+<% unless anagrams.nil? %>
+<b>Anagrams</b>
+<table>
+  <% anagrams.each do |value| %>
+  <tr>
+    <td>
+      <% value[:words].each do |a| %>
+        <%= a[:word] if a.instance_of?(Dictionary) %>
+        <%= a if a.instance_of?(String) %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<% end %>

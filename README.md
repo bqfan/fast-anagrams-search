@@ -3,26 +3,14 @@ fast-anagrams-search
 
 Rails app for fast and scalable anagrams search.
 
-1. Create a rails app:
+The implementation emphasizes on the speed of delivery of results and scaling to larger dictionaries.
 
-<pre><code>rails new fast-anagrams-search --skip-test-unit</code></pre>
+The dictionary is pre-grouped to anagrams with the word sorted as the key and the anagrams as word with two columns "key" and "word" being indexed.
 
-2. Add RSpec and capybara gems to Gemfile
+With the input word sorted, it's quite easy and fast to find anagrams against the key.
 
-<pre><code>group :development, :test do
-  gem 'rspec-rails'
-end
+As the dictionary resides in db, it can hold very large dictionaries!
 
-group :test do
-  gem 'capybara'
-end
-</code></pre>
-3. It needs to be in the :development group to expose generators and rake tasks without having to type RAILS_ENV=test.
+The dictionary raw files are in ./db folder.
 
-Now you can run:
-
-<pre><code>script/rails generate rspec:install</code></pre>
-
-This adds the spec directory and some skeleton files, including a .rspec file
-
-
+Reference: https://github.com/gabrielhilal/anagrams.git

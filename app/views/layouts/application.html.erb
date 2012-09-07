@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FastAnagramsSearch</title>
+  <title>Anagrams</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<header>
+  <%= render "layouts/header" %>
+</header>
+<% unless flash.empty? %>
+  <div id="notice">
+    <% flash.each do |key, value| %>
+      <div class="flash <%= key %>">
+        <%= value %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<section>
+  <%= yield %>
+</section>
+<footer>
+  <%= render "layouts/footer" %>
+</footer>
 </body>
 </html>

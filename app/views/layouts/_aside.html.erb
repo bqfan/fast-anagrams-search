@@ -1,0 +1,14 @@
+<% if dictionary_empty? %>
+    <h3>Load File</h3>
+    <%= form_tag({controller: :dictionaries, action: :create}, :multipart => true) do %>
+      <%= file_field_tag :dictionary %><br />
+      <%= submit_tag 'Load File' %>
+    <% end %>
+<% else %>
+    <p class="align_right">
+      <%= link_to 'Delete dictionary', delete_dictionary_path, confirm: "Are you sure you want to delete the dictionary?", method: :delete %>
+    </p>
+    <br />
+    <p>Dictionary loaded in <strong><%= loading_time %> micro-seconds</strong></p>
+    <p>Dictionary has a total of <strong><!--%= dictionary.size %--> words</strong></p><br />
+<% end %>

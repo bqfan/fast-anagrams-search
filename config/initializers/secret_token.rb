@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-FastAnagramsSearch::Application.config.secret_token = 'da057ec65f0814c1cdeb57fc6d0c016eaaacfefad045beb69b8b8c2a054681b3942addcfd32655886d00c7eaf4dd07cdcff10fed98d2ada2090fb7ad8d6c2370'
+Anagrams::Application.config.secret_token = '02019039ecb7acfc78af109ae0f0d376dc9dcb1818dd5328ebca490fa711b0358127f6d8f35c04712f2d62966e28e8965850038471edb49c37efc9beeae34548'
